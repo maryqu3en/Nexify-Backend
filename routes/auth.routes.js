@@ -6,7 +6,7 @@ const { registerRules, loginRules, validate } = require('../middleware/validateF
 
 /**
  * @swagger
- * /register:
+ * /api/register:
  *   post:
  *     summary: Register a new user
  *     description: Creates a new user with the provided information and returns a token.
@@ -43,7 +43,7 @@ router.post('/register', registerRules, validate, authController.register);
 
 /**
  * @swagger
- * /login:
+ * /api/login:
  *   post:
  *     summary: Login a user
  *     description: Logs in a user with the provided email and password and returns a token.
@@ -78,7 +78,7 @@ router.post('/login', loginRules, validate, authController.login);
 
 /**
  * @swagger
- * /logout:
+ * /api/logout:
  *   post:
  *     summary: Logout a user
  *     description: Logs out a user by invalidating their token.

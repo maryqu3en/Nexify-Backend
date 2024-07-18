@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "nexify-tests",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

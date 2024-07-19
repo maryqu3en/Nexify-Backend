@@ -9,7 +9,13 @@ exports.register = async (req, res) => {
         const token = await generateToken(user);
         res.status(201).send({ message: 'User registered successfully', token });
     } catch (error) {
-        res.status(400).send(error);
+        if (error.code === 11000) {
+            res.status(400).send({ message: 'Email already exists' });
+        } else {
+            console.error('Error creating user:', error);
+            res.status(500).send({ message: 'Failed to create user' });
+        }
+        // res.status(400).send(error);
     }
 };
 

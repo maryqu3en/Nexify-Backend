@@ -5,8 +5,9 @@ const cors = require('cors');
 require('dotenv').config();
 const { swaggerUi, specs } = require("./docs/swagger");
 const authRouter = require('./routes/auth.routes');
-// const userRouter = require('./routes/user.routes');
-// const chatRouter = require('./routes/chat.routes');
+const userRouter = require('./routes/user.routes');
+const chatRouter = require('./routes/chat.routes');
+const messageRouter = require('./routes/message.routes');
 const socketHelper = require('./helpers/socket.helpers');
 
 
@@ -23,8 +24,9 @@ app.get('/', (req, res) => {
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 app.use('/api', authRouter);
-// app.use('/api', userRouter);
-// app.use('/api', chatRouter);
+app.use('/api', userRouter);
+app.use('/api', chatRouter);
+app.use('/api', messageRouter);
 
 connectDB();
 
@@ -35,7 +37,7 @@ const server = app.listen(PORT, () => {
 const io = socketIo(server);
 
 io.on('connection', (socket) => {
-  console.log(`New client connected: ${socket.id}`);
+  console.log(`Client ${socket.id} connected.`);
 
   socket.on('joinRoom', (chatRoomId) => {
     socketHelper.joinChatRoom(socket, chatRoomId);
@@ -51,6 +53,6 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log('Client disconnected');
+    console.log(`Client ${socket.id} disconnected.`);
   });
 });

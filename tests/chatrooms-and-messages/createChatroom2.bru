@@ -1,0 +1,23 @@
+meta {
+  name: createChatroom2
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/chatrooms
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OWFiY2UwZDQ2YWFkMzI1M2IyMDQzNiIsImVtYWlsIjoibWFyeUBtYWlsLm1vYyIsImlhdCI6MTcyMTQxNzA0NiwiZXhwIjoxNzIyMjgxMDQ2fQ.cy_LcBEV8i8k3dvz5tvTR2DJwj1muokpg3kONhi0HBk
+}
+
+body:json {
+  {
+    "name": "les bros",
+    "userIds": ["669abce0d46aad3253b20436", "669abf54f51211d7e40521dd"]
+  }
+  
+}

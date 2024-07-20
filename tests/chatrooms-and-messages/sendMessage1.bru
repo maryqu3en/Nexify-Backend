@@ -1,0 +1,24 @@
+meta {
+  name: sendMessage1
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/api/messages
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OWFiY2UwZDQ2YWFkMzI1M2IyMDQzNiIsImVtYWlsIjoibWFyeUBtYWlsLm1vYyIsImlhdCI6MTcyMTQxNzA0NiwiZXhwIjoxNzIyMjgxMDQ2fQ.cy_LcBEV8i8k3dvz5tvTR2DJwj1muokpg3kONhi0HBk
+}
+
+body:json {
+  {
+    "chatRoomId": "669ac2d6f10483e99d127a02",
+    "userId": "669abce0d46aad3253b20436",
+    "content": "the bros!"
+  }
+  
+}

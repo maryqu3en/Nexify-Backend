@@ -1,0 +1,23 @@
+meta {
+  name: addUser
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/api/chatrooms/addUser
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OWFiY2UwZDQ2YWFkMzI1M2IyMDQzNiIsImVtYWlsIjoibWFyeUBtYWlsLm1vYyIsImlhdCI6MTcyMTQxNzA0NiwiZXhwIjoxNzIyMjgxMDQ2fQ.cy_LcBEV8i8k3dvz5tvTR2DJwj1muokpg3kONhi0HBk
+}
+
+body:json {
+  {
+    "chatRoomId": "669ac004f51211d7e40521e3",
+    "userId": "60d21b4667d0d8992e610c88"
+  }
+  
+}

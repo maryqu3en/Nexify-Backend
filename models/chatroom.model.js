@@ -18,6 +18,10 @@ const ChatRoomSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    deletedAt:{
+        type: Date,
+        default: null
+    },
     isDeleted: {
         type: Boolean,
         default: false

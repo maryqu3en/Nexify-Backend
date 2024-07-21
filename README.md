@@ -23,7 +23,7 @@ Nexify is a real-time chat application that allows users to create profiles, cha
 
 ## Database design
 
-![Database Entity Diagram](./assets/VacanSee-ERD.png)
+![Database Entity Diagram](./assets/Nexify-ERD.png)
 
 ## Design Pattern Architecture
 - MVC Architecture (Model View Controller)

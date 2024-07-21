@@ -65,6 +65,10 @@ Nexify is a real-time chat application that allows users to create profiles, cha
 
 ## Installation
 1. Clone the repository
+```
+git clone https://github.com/maryqu3en/Nexify-Backend.git
+cd Nexify-Backend
+```
 2. Run `npm install` to install all dependencies
 3. Create a `.env` file and add the following environment variables:
 ```

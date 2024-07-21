@@ -127,6 +127,8 @@ router.post('/chatrooms/addUser', auth, chatController.addUserToChatRoom);
  *         description: Internal Server Error
  */
 
+router.get('/chatrooms/:id', auth, chatController.getChatRoom);
+
 /**
  * @swagger
  * /api/chatrooms:
@@ -165,9 +167,6 @@ router.post('/chatrooms/addUser', auth, chatController.addUserToChatRoom);
  *       500:
  *         description: Internal Server Error
  */
-
-router.get('/chatrooms/:id', auth, chatController.getChatRoom);
-
 
 router.get('/chatrooms', auth, chatController.getUserChats);
 

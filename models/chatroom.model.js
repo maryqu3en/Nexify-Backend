@@ -28,6 +28,12 @@ const ChatRoomSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
+ChatRoomSchema.virtual("messages", {
+    ref: "Message",
+    foreignField: "chatRoom",
+    localField: "_id",
+  });
+
 const ChatRoom = mongoose.model('ChatRoom', ChatRoomSchema);
 
 module.exports = ChatRoom;

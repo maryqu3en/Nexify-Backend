@@ -4,18 +4,20 @@ const connectDB = require('./config/mongodb');
 const cors = require('cors');
 require('dotenv').config();
 const { swaggerUi, specs } = require("./docs/swagger");
+const { logger } = require('./middleware/logger');
+const { errorHandler, notFound } = require('./middleware/error.middleware');
 const authRouter = require('./routes/auth.routes');
 const userRouter = require('./routes/user.routes');
 const chatRouter = require('./routes/chat.routes');
 const messageRouter = require('./routes/message.routes');
 const socketHelper = require('./helpers/socket.helpers');
 
-
-const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+app.use(logger);
 
 app.get('/', (req, res) => {
   res.send("Welcome to Nexify, a Chat App API.");
@@ -28,10 +30,14 @@ app.use('/api', userRouter);
 app.use('/api', chatRouter);
 app.use('/api', messageRouter);
 
+app.use(notFound);
+app.use(errorHandler);
+
 connectDB();
 
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
-    console.log(`server running in http://localhost:${PORT}`);
+  console.log(`server running in http://localhost:${PORT}`);
 });
 
 const io = socketIo(server);

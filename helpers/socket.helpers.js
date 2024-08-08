@@ -1,6 +1,4 @@
 const Message = require('../models/message.model');
-const ChatRoom = require('../models/chatroom.model');
-const User = require('../models/user.model');
 
 const broadcastMessage = async (io, chatRoomId, userId, content) => {
   try {
@@ -25,6 +23,3 @@ module.exports = {
   joinChatRoom,
   leaveChatRoom,
 };
-
-// return all messages
-// return chatrooms u r in

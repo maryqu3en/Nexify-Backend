@@ -15,7 +15,6 @@ exports.register = async (req, res) => {
             console.error('Error creating user:', error);
             res.status(500).send({ message: 'Failed to create user' });
         }
-        // res.status(400).send(error);
     }
 };
 
@@ -29,7 +28,8 @@ exports.login = async (req, res) => {
         const token = await generateToken(user);
         res.status(201).send({ message: 'User logged in successfully', token });
     } catch (error) {
-        res.status(500).send(error);
+        console.error('Error logging in user:', error);
+        res.status(500).send({ message: 'Failed to log in user' });
     }
 };
 
@@ -39,6 +39,7 @@ exports.logout = async (req, res) => {
         await deleteToken(token);
         res.send({ message: 'Logged out successfully' });
     } catch (error) {
-        res.status(500).send(error);
+        console.error('Error logging out user:', error);
+        res.status(500).send({ message: 'Failed to log out user' });
     }
 };

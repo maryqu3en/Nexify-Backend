@@ -16,12 +16,12 @@ exports.sendMessage = async (req, res) => {
     }
 };
 
-exports.getMessages = async (req, res) => {
-    try {
-        const { chatRoomId } = req.params;
-        const messages = await Message.find({ chatRoom: chatRoomId }).populate('user', 'username email');
-        res.status(200).json(messages);
-    } catch (error) {
-        res.status(500).json({ error: 'Server error during fetching messages' });
-    }
-};
+// exports.getMessages = async (req, res) => {
+//     try {
+//         const { chatRoomId } = req.params;
+//         const messages = await Message.find({ chatRoom: chatRoomId }).populate('user', 'username email');
+//         res.status(200).json(messages);
+//     } catch (error) {
+//         res.status(500).json({ error: 'Server error during fetching messages' });
+//     }
+// };

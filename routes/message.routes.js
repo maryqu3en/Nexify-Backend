@@ -5,44 +5,44 @@ const auth = require('../middleware/auth.middleware');
 
 const router = express.Router();
 
-/**
- * @swagger
- * /api/messages/{chatRoomId}:
- *   get:
- *     summary: Get messages for a chat
- *     description: Retrieve all messages for a specific chat.
- *     parameters:
- *       - in: path
- *         name: chatRoomId
- *         description: Chat ID
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: List of messages
- *         schema:
- *           type: array
- *           items:
- *             type: object
- *             properties:
- *               _id:
- *                 type: string
- *               content:
- *                 type: string
- *               user:
- *                 type: string
- *               chatRoom:
- *                 type: string
- *               createdAt:
- *                 type: string
- *       404:
- *         description: Chat not found
- *       500:
- *         description: Internal Server Error
- */
+// /**
+//  * @swagger
+//  * /api/messages/{chatRoomId}:
+//  *   get:
+//  *     summary: Get messages for a chat
+//  *     description: Retrieve all messages for a specific chat.
+//  *     parameters:
+//  *       - in: path
+//  *         name: chatRoomId
+//  *         description: Chat ID
+//  *         required: true
+//  *         schema:
+//  *           type: string
+//  *     responses:
+//  *       200:
+//  *         description: List of messages
+//  *         schema:
+//  *           type: array
+//  *           items:
+//  *             type: object
+//  *             properties:
+//  *               _id:
+//  *                 type: string
+//  *               content:
+//  *                 type: string
+//  *               user:
+//  *                 type: string
+//  *               chatRoom:
+//  *                 type: string
+//  *               createdAt:
+//  *                 type: string
+//  *       404:
+//  *         description: Chat not found
+//  *       500:
+//  *         description: Internal Server Error
+//  */
 
-router.get('/messages/:chatRoomId', auth, getMessages);
+// router.get('/messages/:chatRoomId', auth, getMessages);
 
 /**
  * @swagger

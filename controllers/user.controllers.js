@@ -2,6 +2,12 @@ const User = require('../models/user.model');
 
 exports.getUserById = async (req, res) => {
     try {
+
+        // query {
+        //     _id: req.params.id,
+        //     isDeleted: false}
+        // execute
+        // fetch
         const user = await User.findById(req.params.id).select('-password');
         if (!user) {
             return res.status(404).send({ error: 'User not found' });
